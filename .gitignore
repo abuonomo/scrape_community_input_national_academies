@@ -1,0 +1,4 @@
+chromedriver
+*.csv
+venv/*
+*.zip

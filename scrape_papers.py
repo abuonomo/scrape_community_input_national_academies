@@ -80,7 +80,6 @@ def main(outfile):
             continue
         button_index += 1
 
-    import ipdb; ipdb.set_trace()
     df = pd.DataFrame(page_vals)
     df.columns = ['Author', 'Institution', 'Title', 'FileName', 'FileUrl']
 

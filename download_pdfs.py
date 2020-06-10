@@ -23,19 +23,20 @@ def main(infile: os.PathLike, outdir: Path):
     progress_bar = tqdm(zip(urls, filenames), total=len(urls))
 
     results = {'succeeded': [], 'failed': []}
-    
+
     outdir.mkdir()
     for url, filename in progress_bar:
         progress_bar.set_description(filename)
         res = requests.get(url, allow_redirects=True)
         if res.headers['Content-Type'] != 'application/pdf':
-            LOG.warning(f'{filename} was not found. Server might be blocking requests.')
+            LOG.warning(f'\"{filename}\" was not found.')
             results['failed'].append(filename)
         else:
             with open(outdir / filename, 'wb') as f0:
                 f0.write(res.content)
             results['succeeded'].append(filename)
-
+    
+    LOG.info(f'Succesfully downloaded {len(results["succeeded"])} out of {len(filenames)} pdfs.')
     return results
 
 

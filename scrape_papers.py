@@ -2,7 +2,6 @@
 # author: Anthony Buonomo
 # email: arb246@georgetown.edu
 
-
 import argparse
 import logging
 import atexit

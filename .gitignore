@@ -1,4 +1,6 @@
 chromedriver
+*.pdf
 *.csv
 venv/*
 *.zip
+papers/*
